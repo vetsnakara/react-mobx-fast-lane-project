@@ -8,8 +8,12 @@ export const detailFetcher = (name: string) => async () => {
   return { ...details, names: species.names }
 }
 
-export const listFetcher = () => async () => {
-  return await fetch(
-    "https://pokeapi.co/api/v2/pokemon?limit=10&offset=0"
-  ).then((r) => r.json())
-}
+export const listFetcher =
+  () =>
+  async ({ pageParam = 0 }) => {
+    return await fetch(
+      "https://pokeapi.co/api/v2/pokemon?limit=10&offset=" + pageParam * 100
+    )
+      .then((r) => r.json())
+      .then((res) => ({ ...res, pageParam }))
+  }

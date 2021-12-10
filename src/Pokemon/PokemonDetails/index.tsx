@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom"
+import PokemonListItem from "../PokemonListItem"
 import styles from "./PokemonDetails.module.css"
-import PokemonListItem from "./PokemonListItem"
 
 export default function PokemonDetails() {
   const { name } = useParams<{ name: string }>()
