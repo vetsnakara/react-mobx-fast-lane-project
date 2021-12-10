@@ -27,7 +27,7 @@ function PokemonList({ filter }: any) {
   // -----------------------------------
   useEffect(() => {
     window.scrollTo(0, app.scrollPositionY)
-  }, [])
+  }, [app])
 
   const handlePokemonClick = () => {
     app.handleScrollPositionChange(window.scrollY)
